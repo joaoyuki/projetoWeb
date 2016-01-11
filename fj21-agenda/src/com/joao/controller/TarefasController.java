@@ -1,5 +1,6 @@
 package com.joao.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -51,8 +52,16 @@ public class TarefasController {
 	  
 	  System.out.println("remove tarefas");
 	  
-	  return "forward:listaTarefas";
+	  return "forward:listaTarefas";// Usa o forward para navegar entre as requisições.
 	  
+  }
+  
+  @RequestMapping("finalizaTarefa")
+  public void finaliza(HttpServletResponse response) {
+   
+	System.out.println("AJAX");
+    //dao.finaliza(id);
+    response.setStatus(200);
   }
   
 }
